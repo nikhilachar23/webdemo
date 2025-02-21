@@ -24,9 +24,14 @@ pipeline {
                // buildproject('hello-world')
              }
            }
+           stage('download') {
+             steps {
+             }
+           }
            stage('deploy') {
              steps {
-               sh "sudo cp target/*.war /opt/apache-tomcat-10.1.35/webapps/"
+              // sh "sudo cp target/*.war /opt/apache-tomcat-10.1.35/webapps/"
+                sh "cp hello-world-war-1.0.0.war /opt/apache-tomcat-10.1.35/webapps/"
              }
            }
          }
