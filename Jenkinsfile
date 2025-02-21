@@ -29,7 +29,7 @@ pipeline {
                // curl -L -u "${(JFROGUSERNAME):$(JFROGTOKEN)}" -O "https://trialx0vg5x.jfrog.io/artifactory/hello-world-war-libs-release/com/efsavage/hello-world-war/1.0.0/hello-world-war-1.0.0.war"
              withCredentials([string(credentialsId: 'jfrog_token', variable: 'JFROG_API_TOKEN')]) {
                         sh '''
-                        curl -L -u "nikhilc.achar23@gmail.com:\${JFROG_API_TOKEN}" -O "https://trialx0vg5x.jfrog.io/artifactory/hello-world-war-libs-release/com/efsavage/hello-world-war/1.0.0/hello-world-war-1.0.0.war"
+                        curl -L -u "nikhilc.achar23@gmail.com:\${JFROG_API_TOKEN}" -o "nikhil-achar-1.0.0.war" "https://trialx0vg5x.jfrog.io/artifactory/hello-world-war-libs-release/com/efsavage/hello-world-war/1.0.0/hello-world-war-1.0.0.war"
                         '''
              }
              }
@@ -37,7 +37,7 @@ pipeline {
            stage('deploy') {
              steps {
               // sh "sudo cp target/*.war /opt/apache-tomcat-10.1.35/webapps/"
-                sh "sudo cp hello-world-war-1.0.0.war /opt/apache-tomcat-10.1.35/webapps/"
+                sh "sudo cp nikhil-achar-1.0.0.war /opt/apache-tomcat-10.1.35/webapps/"
              }
            }
          }
