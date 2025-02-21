@@ -17,6 +17,13 @@ pipeline {
                buildproject('hello-world')
              }
            }
+           stage('publish') {
+             steps {
+               // sh "cd webdemo"
+               sh "mvn clean deploy"
+               // buildproject('hello-world')
+             }
+           }
            stage('deploy') {
              steps {
                sh "sudo cp target/*.war /opt/apache-tomcat-10.1.35/webapps/"
