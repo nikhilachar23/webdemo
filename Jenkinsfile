@@ -26,7 +26,7 @@ pipeline {
            }
            stage('download') {
              steps {
-               sh 'curl -L -u "${(JFROGUSERNAME)}:${(JFROGTOKEN)}" -O "https://trialx0vg5x.jfrog.io/artifactory/hello-world-war-libs-release/com/efsavage/hello-world-war/1.0.0/hello-world-war-1.0.0.war"'
+               curl -L -u "${(JFROGUSERNAME)}:${(JFROGTOKEN)}" -O "https://trialx0vg5x.jfrog.io/artifactory/hello-world-war-libs-release/com/efsavage/hello-world-war/1.0.0/hello-world-war-1.0.0.war"
              }
            }
            stage('deploy') {
